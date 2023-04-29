@@ -14,11 +14,13 @@ class Application
     @io.puts "Welcome to the shop management program!\n \nWhat would you like to do?\n1 = list all shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order\n\n\n\nEnter your choice:"
     result = @io.gets.chomp.to_i
     case result
+      
       when 1
         @io.puts "\nHere's a list of all shop items:\n"
         @item_repository.all.each do |item|
           @io.puts "##{item.id} #{item.name} - Unit price: #{item.unit_price} - Quantity: #{item.quantity}"
         end
+      
       when 2
         @io.puts "\nPlease enter the NAME of the item and hit enter"
         new_name = @io.gets.chomp.to_s
@@ -34,9 +36,15 @@ class Application
         @item_repository.all.each do |item|
           @io.puts "##{item.id} #{item.name} - Unit price: #{item.unit_price} - Quantity: #{item.quantity}"
         end
+      
+      when 3
+        @io.puts "\nHere's a list of all orders:\n"
+        @order_repository.all.each do |order|
+          @io.puts "##{order.id} Customer: #{order.customer_name} - Order date: #{order.date} - Item id: #{order.item_id}"
+        end
+        
     end
   end
-
 end
 
 if __FILE__ == $0

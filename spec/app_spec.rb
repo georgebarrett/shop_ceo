@@ -51,6 +51,18 @@ RSpec.describe Application do
     app.run
   end
 
+  it 'when the user selects 3, all the orders are printed' do
+    io = double :io
+    expect(io).to receive(:puts).with("Welcome to the shop management program!\n \nWhat would you like to do?\n1 = list all shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order\n\n\n\nEnter your choice:").ordered
+    expect(io).to receive(:gets).and_return('3').ordered
+    expect(io).to receive(:puts).with("\nHere's a list of all orders:\n").ordered
+    expect(io).to receive(:puts).with("#1 Customer: Nate - Order date: 2012-11-04 - Item id: 1")
+    expect(io).to receive(:puts).with("#2 Customer: Will - Order date: 2012-07-09 - Item id: 2")
+    
+
+    app = Application.new('shop_ceo_test', io, OrderRepository.new, ItemRepository.new)
+    app.run
+  end
 end
 
 
