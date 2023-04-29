@@ -40,4 +40,15 @@ describe ItemRepository do
     expect(item.quantity).to eq 8
   end
 
+  it 'gets a different item' do
+    repo = ItemRepository.new
+
+    item = repo.find(2)
+
+    expect(item.id).to eq 2
+    expect(item.name).to eq 'Lamp'
+    expect(item.unit_price).to eq '9.98'
+    expect(item.quantity).to eq 6
+  end
+
 end
