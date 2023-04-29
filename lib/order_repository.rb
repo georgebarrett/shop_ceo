@@ -14,6 +14,15 @@ class OrderRepository
     return orders
   end
 
+  def find(id)
+    sql = 'SELECT * FROM orders WHERE id = $1;'
+    sql_params = [id]
+    result_set = DatabaseConnection.exec_params(sql, sql_params)
+    record = result_set[0]
+
+    return record_to_order_object(record)
+  end
+
   private
 
   def record_to_order_object(record)
