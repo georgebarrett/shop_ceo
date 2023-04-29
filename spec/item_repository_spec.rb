@@ -51,4 +51,19 @@ describe ItemRepository do
     expect(item.quantity).to eq 6
   end
 
+  it 'creates a new item' do
+    new_item = Item.new
+    new_item.name = 'The Sword of Destiny'
+    new_item.unit_price = '1.97'
+    new_item.quantity = 1
+    
+    repo = ItemRepository.new
+    repo.create(new_item)
+    items = repo.all
+
+    expect(items[-1].name).to eq 'The Sword of Destiny'
+    expect(items[-1].unit_price).to eq '1.97'
+    expect(items[-1].quantity).to eq 1
+  end
+
 end
