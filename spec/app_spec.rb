@@ -39,7 +39,7 @@ RSpec.describe Application do
     expect(io).to receive(:gets).and_return("The Sword of Destiny").ordered
     expect(io).to receive(:puts).with("\nPlease enter the UNIT PRICE of the item and hit enter")
     expect(io).to receive(:gets).and_return("1.99").ordered
-    expect(io).to receive(:puts).with("\nPlease enter the STOCK QUANTITY of the item and hit enter")
+    expect(io).to receive(:puts).with("\nPlease enter the QUANTITY of the item and hit enter")
     expect(io).to receive(:gets).and_return("2").ordered
     
     expect(io).to receive(:puts).with("\nHere's a list of all shop items:\n").ordered
