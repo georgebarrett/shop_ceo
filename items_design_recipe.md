@@ -160,6 +160,13 @@ item = repo.find(1)
 
 item.id # =>  '1'
 item.name # =>  'Cup'
+item.unit_price # =>  '9.98'
+item.quantity # =>  '6'
+
+# get a different item
+
+item.id # =>  '2'
+item.name # =>  'Lamp'
 item.unit_price # =>  '4.99'
 item.quantity # =>  '8'
 
