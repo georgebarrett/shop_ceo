@@ -134,7 +134,6 @@ These examples will later be encoded as RSpec tests.
 ```ruby
 # EXAMPLES
 
-# 1
 # Get all orders
 
 repo = OrderRepository.new
@@ -153,7 +152,7 @@ orders[1].customer_name # =>  'Will'
 orders[1].date # =>  '2012-07-09'
 orders[1].item_id # =>  '2'
 
-# 2
+
 # Get a single order
 
 repo = OrderRepository.new
@@ -164,6 +163,17 @@ order.id # =>  '1'
 order.customer_name # =>  'Nate'
 order.date # =>  '2012-11-04'
 order.item_id # =>  '1'
+
+# Get a different order
+
+repo = OrderRepository.new
+
+order = repo.find(2)
+
+expect(order.id).to eq 2
+expect(order.customer_name).to eq 'Will'
+expect(order.date).to eq '2012-07-09'
+expect(order.item_id).to eq 1
 
 # Creates an order
 
