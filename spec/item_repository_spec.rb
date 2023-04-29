@@ -29,4 +29,15 @@ describe ItemRepository do
     expect(items[1].quantity).to eq 6
   end
 
+  it 'gets a single item' do
+    repo = ItemRepository.new
+
+    item = repo.find(1)
+
+    expect(item.id).to eq 1
+    expect(item.name).to eq 'Cup'
+    expect(item.unit_price).to eq '4.99'
+    expect(item.quantity).to eq 8
+  end
+
 end
