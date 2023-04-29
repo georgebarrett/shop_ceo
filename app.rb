@@ -26,7 +26,7 @@ class Application
         new_name = @io.gets.chomp.to_s
         @io.puts "\nPlease enter the UNIT PRICE of the item and hit enter"
         new_unit_price = @io.gets.chomp.to_f
-        @io.puts "\nPlease enter the STOCK QUANTITY of the item and hit enter"
+        @io.puts "\nPlease enter the QUANTITY of the item and hit enter"
         new_quantity = @io.gets.chomp.to_i
         @io.puts "\nHere's a list of all shop items:\n"
         
