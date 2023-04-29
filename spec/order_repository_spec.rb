@@ -50,4 +50,19 @@ describe OrderRepository do
     expect(order.date).to eq '2012-07-09'
     expect(order.item_id).to eq 2
   end
+
+  it 'creates a new order' do
+    new_order = Order.new
+    new_order.customer_name = 'George'
+    new_order.date = '2023-07-04'
+    new_order.item_id = 2
+
+    repo = OrderRepository.new
+    repo.create(new_order)
+
+    orders = repo.all
+    expect(orders[-1].customer_name).to eq 'George'
+    expect(orders[-1].date).to eq '2023-07-04'
+    expect(orders[-1].item_id).to eq 2
+  end
 end
