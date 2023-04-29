@@ -39,4 +39,15 @@ describe OrderRepository do
     expect(order.date).to eq '2012-11-04'
     expect(order.item_id).to eq 1
   end
+
+  it 'gets a differnt single order' do
+    repo = OrderRepository.new
+
+    order = repo.find(2)
+
+    expect(order.id).to eq 2
+    expect(order.customer_name).to eq 'Will'
+    expect(order.date).to eq '2012-07-09'
+    expect(order.item_id).to eq 2
+  end
 end
