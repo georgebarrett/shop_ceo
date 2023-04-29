@@ -19,6 +19,21 @@ class Application
         @item_repository.all.each do |item|
           @io.puts "##{item.id} #{item.name} - Unit price: #{item.unit_price} - Quantity: #{item.quantity}"
         end
+      when 2
+        @io.puts "\nPlease enter the NAME of the item and hit enter"
+        new_name = @io.gets.chomp.to_s
+        @io.puts "\nPlease enter the UNIT PRICE of the item and hit enter"
+        new_unit_price = @io.gets.chomp.to_f
+        @io.puts "\nPlease enter the STOCK QUANTITY of the item and hit enter"
+        new_quantity = @io.gets.chomp.to_i
+        @io.puts "\nHere's a list of all shop items:\n"
+        
+        new_item = Item.new
+        new_item.name, new_item.unit_price, new_item.quantity = new_name, new_unit_price, new_quantity
+        @item_repository.create(new_item)
+        @item_repository.all.each do |item|
+          @io.puts "##{item.id} #{item.name} - Unit price: #{item.unit_price} - Quantity: #{item.quantity}"
+        end
     end
   end
 
