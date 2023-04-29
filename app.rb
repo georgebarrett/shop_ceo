@@ -42,7 +42,23 @@ class Application
         @order_repository.all.each do |order|
           @io.puts "##{order.id} Customer: #{order.customer_name} - Order date: #{order.date} - Item id: #{order.item_id}"
         end
+      
+      when 4
+        @io.puts "\nPlease enter the CUSTOMER NAME of the order and hit enter"
+        new_customer_name = @io.gets.chomp.to_s
+        @io.puts "\nPlease enter the DATE of the order and hit enter (YYYY-MM-DD)"
+        new_date = @io.gets.chomp.to_s
+        @io.puts "\nPlease enter the ITEM ID of the order and hit enter"
+        new_item_id = @io.gets.chomp.to_i
+        @io.puts "\nHere's a list of all orders:\n"
         
+        new_order = Order.new
+        new_order.customer_name, new_order.date, new_order.item_id = new_customer_name, new_date, new_item_id
+        @order_repository.create(new_order)
+        @order_repository.all.each do |order|
+          @io.puts "##{order.id} Customer: #{order.customer_name} - Order date: #{order.date} - Item id: #{order.item_id}"       
+        end
+
     end
   end
 end

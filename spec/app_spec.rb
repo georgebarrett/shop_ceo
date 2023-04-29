@@ -56,11 +56,30 @@ RSpec.describe Application do
     expect(io).to receive(:puts).with("Welcome to the shop management program!\n \nWhat would you like to do?\n1 = list all shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order\n\n\n\nEnter your choice:").ordered
     expect(io).to receive(:gets).and_return('3').ordered
     expect(io).to receive(:puts).with("\nHere's a list of all orders:\n").ordered
-    expect(io).to receive(:puts).with("#1 Customer: Nate - Order date: 2012-11-04 - Item id: 1")
-    expect(io).to receive(:puts).with("#2 Customer: Will - Order date: 2012-07-09 - Item id: 2")
+    expect(io).to receive(:puts).with("#1 Customer: Nate - Order date: 2012-11-04 - Item id: 1").ordered
+    expect(io).to receive(:puts).with("#2 Customer: Will - Order date: 2012-07-09 - Item id: 2").ordered
     
 
     app = Application.new('shop_ceo_test', io, OrderRepository.new, ItemRepository.new)
+    app.run
+  end
+
+  it 'if the user selects 4, they can create a new order and then return the full order list' do
+    io = double :io
+    expect(io).to receive(:puts).with("Welcome to the shop management program!\n \nWhat would you like to do?\n1 = list all shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order\n\n\n\nEnter your choice:").ordered
+    expect(io).to receive(:gets).and_return("4").ordered
+    expect(io).to receive(:puts).with("\nPlease enter the CUSTOMER NAME of the order and hit enter")
+    expect(io).to receive(:gets).and_return("Aphex Twin").ordered
+    expect(io).to receive(:puts).with("\nPlease enter the DATE of the order and hit enter (YYYY-MM-DD)")
+    expect(io).to receive(:gets).and_return("2023-01-01").ordered
+    expect(io).to receive(:puts).with("\nPlease enter the ITEM ID of the order and hit enter").ordered
+    expect(io).to receive(:gets).and_return("2").ordered
+    expect(io).to receive(:puts).with("\nHere's a list of all orders:\n").ordered
+    expect(io).to receive(:puts).with("#1 Customer: Nate - Order date: 2012-11-04 - Item id: 1").ordered
+    expect(io).to receive(:puts).with("#2 Customer: Will - Order date: 2012-07-09 - Item id: 2").ordered
+    expect(io).to receive(:puts).with("#3 Customer: Aphex Twin - Order date: 2023-01-01 - Item id: 2").ordered
+
+    app = Application.new('shop_ceo_test', io , OrderRepository.new, ItemRepository.new)
     app.run
   end
 end
