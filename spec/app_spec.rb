@@ -21,7 +21,7 @@ RSpec.describe Application do
 
   it 'when a user selects 1, all the items are printed' do
     io = double :io
-    expect(io).to receive(:puts).with("Welcome to the shop management program!\n \nWhat would you like to do?\n1 = list all shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order\n\n\n\nEnter your choice:").ordered
+    expect(io).to receive(:puts).with("Welcome to the shop management program!\n \nWhat would you like to do?\n1 = list all shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order\n\nEnter your choice:").ordered
     expect(io).to receive(:gets).and_return("1").ordered
     expect(io).to receive(:puts).with("\nHere's a list of all shop items:\n").ordered
     expect(io).to receive(:puts).with("#1 Cup - Unit price: 4.99 - Quantity: 8").ordered
@@ -33,7 +33,7 @@ RSpec.describe Application do
 
   it 'when a user selects 2, they can create a new item and then return the full item list' do
     io = double :io
-    expect(io).to receive(:puts).with("Welcome to the shop management program!\n \nWhat would you like to do?\n1 = list all shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order\n\n\n\nEnter your choice:").ordered
+    expect(io).to receive(:puts).with("Welcome to the shop management program!\n \nWhat would you like to do?\n1 = list all shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order\n\nEnter your choice:").ordered
     expect(io).to receive(:gets).and_return("2").ordered
     expect(io).to receive(:puts).with("\nPlease enter the NAME of the item and hit enter")
     expect(io).to receive(:gets).and_return("The Sword of Destiny").ordered
@@ -53,7 +53,7 @@ RSpec.describe Application do
 
   it 'when the user selects 3, all the orders are printed' do
     io = double :io
-    expect(io).to receive(:puts).with("Welcome to the shop management program!\n \nWhat would you like to do?\n1 = list all shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order\n\n\n\nEnter your choice:").ordered
+    expect(io).to receive(:puts).with("Welcome to the shop management program!\n \nWhat would you like to do?\n1 = list all shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order\n\nEnter your choice:").ordered
     expect(io).to receive(:gets).and_return('3').ordered
     expect(io).to receive(:puts).with("\nHere's a list of all orders:\n").ordered
     expect(io).to receive(:puts).with("#1 Customer: Nate - Order date: 2012-11-04 - Item id: 1").ordered
@@ -66,7 +66,7 @@ RSpec.describe Application do
 
   it 'if the user selects 4, they can create a new order and then return the full order list' do
     io = double :io
-    expect(io).to receive(:puts).with("Welcome to the shop management program!\n \nWhat would you like to do?\n1 = list all shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order\n\n\n\nEnter your choice:").ordered
+    expect(io).to receive(:puts).with("Welcome to the shop management program!\n \nWhat would you like to do?\n1 = list all shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order\n\nEnter your choice:").ordered
     expect(io).to receive(:gets).and_return("4").ordered
     expect(io).to receive(:puts).with("\nPlease enter the CUSTOMER NAME of the order and hit enter")
     expect(io).to receive(:gets).and_return("Aphex Twin").ordered

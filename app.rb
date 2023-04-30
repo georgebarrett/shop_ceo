@@ -11,7 +11,7 @@ class Application
   end
 
   def run
-    @io.puts "Welcome to the shop management program!\n \nWhat would you like to do?\n1 = list all shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order\n\n\n\nEnter your choice:"
+    @io.puts "Welcome to the shop management program!\n \nWhat would you like to do?\n1 = list all shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order\n\nEnter your choice:"
     result = @io.gets.chomp.to_i
     case result
       
