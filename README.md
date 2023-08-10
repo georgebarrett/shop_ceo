@@ -38,6 +38,6 @@ I want to be able to create a new order.
 
 # you should see
 
-![Alt text](<Screenshot 2023-08-10 at 15.42.25.png>)
+![Alt text](output.png)
 
 
